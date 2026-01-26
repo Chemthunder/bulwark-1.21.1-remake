@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "bulwark",
+  "version": "${version}",
+  "name": "Bulwark",
+  "description": "I'm warking it",
+  "authors": [
+    "KindlingCinder",
+    "Chemthunder"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/bulwark/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.kindling.bulwark.impl.Bulwark"
+    ],
+    "client": [
+      "net.kindling.bulwark.impl.client.BulwarkClient"
+    ],
+    "fabric-datagen": [
+      "net.kindling.bulwark.data.BulwarkDataGenerator"
+    ]
+  },
+  "mixins": [
+    "bulwark.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
