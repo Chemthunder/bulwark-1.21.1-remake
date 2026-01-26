@@ -3,31 +3,30 @@ package net.kindling.bulwark.impl.block;
 import com.mojang.serialization.MapCodec;
 import net.kindling.bulwark.impl.block.entity.DisrupterBlockEntity;
 import net.kindling.bulwark.impl.index.BulwarkBlockEntities;
-import net.kindling.bulwark.impl.index.DisrupterProperties;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
+import net.kindling.bulwark.impl.util.BulwarkProperties;
+import net.kindling.bulwark.impl.util.DisrupterType;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+
 public class DisrupterBlock extends BlockWithEntity {
     public static final MapCodec<DisrupterBlock> CODEC = createCodec(DisrupterBlock::new);
-    private static final BooleanProperty LODESTONE = DisrupterProperties.LODESTONE;
-    private static final BooleanProperty SHRIEKER = DisrupterProperties.SHRIEKER;
+    private static final EnumProperty<DisrupterType> TYPE = BulwarkProperties.DISRUPTER_TYPE;
 
     public DisrupterBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(LODESTONE, false));
-        this.setDefaultState(this.stateManager.getDefaultState().with(SHRIEKER, false));
+        setDefaultState(getDefaultState()
+                .with(TYPE, DisrupterType.EMPTY)
+        );
     }
 
     protected MapCodec<? extends BlockWithEntity> getCodec() {
@@ -36,8 +35,7 @@ public class DisrupterBlock extends BlockWithEntity {
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
-        builder.add(LODESTONE);
-        builder.add(SHRIEKER);
+        builder.add(TYPE);
     }
 
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
@@ -58,15 +56,21 @@ public class DisrupterBlock extends BlockWithEntity {
         super.onPlaced(world, pos, state, placer, itemStack);
     }
 
-//    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-//        BlockState aboveState = world.getBlockState(pos.up());
-//
-//        if (aboveState.isOf(Blocks.LODESTONE)) {
-//            world.setBlockState(pos,world.getBlockState(pos).with(LODESTONE, true));
-//        }
-//
-//
-//        world.scheduleBlockTick(pos, this, 30);
-//        super.scheduledTick(state, world, pos, random);
-//    }
+    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
+        BlockState aboveState = world.getBlockState(pos.up());
+
+        if (aboveState.isOf(Blocks.LODESTONE) || aboveState.isOf(Blocks.SCULK_SHRIEKER)) {
+            if (aboveState.isOf(Blocks.LODESTONE)) {
+                world.setBlockState(pos, world.getBlockState(pos).with(TYPE, DisrupterType.LODESTONE));
+            }
+
+            if (aboveState.isOf(Blocks.SCULK_SHRIEKER)) {
+                world.setBlockState(pos, world.getBlockState(pos).with(TYPE, DisrupterType.SHRIEKER));
+            }
+        } else {
+            world.setBlockState(pos, world.getBlockState(pos).with(TYPE, DisrupterType.EMPTY));
+        }
+
+        super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
+    }
 }

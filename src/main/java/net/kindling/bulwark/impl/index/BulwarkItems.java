@@ -10,6 +10,9 @@ import net.minecraft.registry.Registry;
 
 import java.util.function.Function;
 
+import static net.acoyt.acornlib.api.util.ItemUtils.modifyItemNameColor;
+
+@SuppressWarnings("deprecation")
 public interface BulwarkItems {
 
     Item KLAPROTH = create("klaproth", KlaprothItem::new, new Item.Settings()
@@ -36,6 +39,10 @@ public interface BulwarkItems {
     }
 
     static void index() {
-
+        modifyItemNameColor(Item.fromBlock(BulwarkBlocks.LUMINANT_KLAPROTH_TUBE), 0xffbc5e);
+        modifyItemNameColor(Item.fromBlock(BulwarkBlocks.RED_KLAPROTH_TUBE), 0xfd4b57);
+        modifyItemNameColor(Item.fromBlock(BulwarkBlocks.SCULK_KLAPROTH_TUBE), 0x009295);
+        modifyItemNameColor(Item.fromBlock(BulwarkBlocks.SILLY_KLAPROTH_TUBE), 0xffa1fe);
+        modifyItemNameColor(Item.fromBlock(BulwarkBlocks.KLAPROTH_TUBE), 0xd5c3f5);
     }
 }

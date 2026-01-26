@@ -1,0 +1,77 @@
+package net.kindling.bulwark.impl.block;
+
+import com.mojang.serialization.MapCodec;
+import net.kindling.bulwark.impl.index.BulwarkBlocks;
+import net.kindling.bulwark.impl.index.BulwarkParticles;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.RodBlock;
+import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.state.StateManager;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.World;
+
+public class KlaprothTubeBlock extends RodBlock {
+    public static final MapCodec<KlaprothTubeBlock> CODEC = createCodec(KlaprothTubeBlock::new);
+
+    public MapCodec<KlaprothTubeBlock> getCodec() {
+        return CODEC;
+    }
+
+
+    public KlaprothTubeBlock(AbstractBlock.Settings settings) {
+        super(settings);
+        setDefaultState(getDefaultState().with(FACING, Direction.UP));
+    }
+
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        Direction direction = ctx.getSide();
+        BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(direction.getOpposite()));
+        return blockState.isOf(this) && blockState.get(FACING) == direction ? getDefaultState().with(FACING, direction.getOpposite()) : getDefaultState().with(FACING, direction);
+    }
+
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        int chance = random.nextInt(2);
+
+        Direction direction = state.get(FACING);
+        double d = (double)pos.getX() + 0.55 - (double)(random.nextFloat() * 0.1F);
+        double e = (double)pos.getY() + 0.55 - (double)(random.nextFloat() * 0.1F);
+        double f = (double)pos.getZ() + 0.55 - (double)(random.nextFloat() * 0.1F);
+        double g = 0.4F - (random.nextFloat() + random.nextFloat()) * 0.4F;
+        if (random.nextInt(5) == 0) {
+            if (state.isOf(BulwarkBlocks.KLAPROTH_TUBE)) {
+                world.addParticle(BulwarkParticles.SPARKLE_BASE, d + (double) direction.getOffsetX() * g, e + (double) direction.getOffsetY() * g, f + (double) direction.getOffsetZ() * g, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005);
+            }
+            if (state.isOf(BulwarkBlocks.LUMINANT_KLAPROTH_TUBE)) {
+                world.addParticle(BulwarkParticles.SPARKLE_LUMINANT, d + (double) direction.getOffsetX() * g, e + (double) direction.getOffsetY() * g, f + (double) direction.getOffsetZ() * g, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005);
+            }
+            if (state.isOf(BulwarkBlocks.SCULK_KLAPROTH_TUBE)) {
+                world.addParticle(BulwarkParticles.SPARKLE_SCULK, d + (double) direction.getOffsetX() * g, e + (double) direction.getOffsetY() * g, f + (double) direction.getOffsetZ() * g, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005);
+            }
+            if (state.isOf(BulwarkBlocks.SILLY_KLAPROTH_TUBE)) {
+                if (chance == 0) {
+                    world.addParticle(BulwarkParticles.SPARKLE_SILLY_1, d + (double) direction.getOffsetX() * g, e + (double) direction.getOffsetY() * g, f + (double) direction.getOffsetZ() * g, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005);
+                } else {
+                    world.addParticle(BulwarkParticles.SPARKLE_SILLY_2, d + (double) direction.getOffsetX() * g, e + (double) direction.getOffsetY() * g, f + (double) direction.getOffsetZ() * g, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005);
+                }
+            }
+            if (state.isOf(BulwarkBlocks.RED_KLAPROTH_TUBE)) {
+                world.addParticle(BulwarkParticles.SPARKLE_RED, d + (double) direction.getOffsetX() * g, e + (double) direction.getOffsetY() * g, f + (double) direction.getOffsetZ() * g, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005);
+            }
+        }
+    }
+
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
+    }
+
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
+        return false;
+    }
+
+
+}

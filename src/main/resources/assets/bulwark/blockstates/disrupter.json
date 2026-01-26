@@ -1,27 +1,13 @@
 {
-  "multipart": [
-
-    {
-      "apply": {
-        "model": "bulwark:block/disrupter"
-      }
+  "variants": {
+    "disrupter_type=empty": {
+      "model": "bulwark:block/disrupter"
     },
-    {
-      "when": {
-        "lodestone": "true"
-      },
-      "apply": {
-        "model": "bulwark:block/disrupter_lodestone"
-      }
+    "disrupter_type=lodestone": {
+      "model": "bulwark:block/disrupter_lodestone"
     },
-
-    {
-      "when": {
-        "shrieker": "true"
-      },
-      "apply": {
-        "model": "bulwark:block/disrupter_shrieker"
-      }
+    "disrupter_type=shrieker": {
+      "model": "bulwark:block/disrupter_shrieker"
     }
-  ]
+  }
 }

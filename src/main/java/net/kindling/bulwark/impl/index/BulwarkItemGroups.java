@@ -34,5 +34,11 @@ public interface BulwarkItemGroups {
 
         itemGroup.add(DISRUPTER);
         itemGroup.add(OPERATOR_KEY);
+
+        itemGroup.add(KLAPROTH_TUBE);
+        itemGroup.add(LUMINANT_KLAPROTH_TUBE);
+        itemGroup.add(RED_KLAPROTH_TUBE);
+        itemGroup.add(SCULK_KLAPROTH_TUBE);
+        itemGroup.add(SILLY_KLAPROTH_TUBE);
     }
 }

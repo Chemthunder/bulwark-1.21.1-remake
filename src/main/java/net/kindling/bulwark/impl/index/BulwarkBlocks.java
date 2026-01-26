@@ -4,6 +4,7 @@ import net.acoyt.acornlib.impl.item.TranslationBlockItem;
 import net.kindling.bulwark.impl.Bulwark;
 import net.kindling.bulwark.impl.block.DisrupterBlock;
 import net.kindling.bulwark.impl.block.KlaprothBlock;
+import net.kindling.bulwark.impl.block.KlaprothTubeBlock;
 import net.kindling.bulwark.impl.block.RestrictorBlock;
 import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.Block;
@@ -20,7 +21,25 @@ public interface BulwarkBlocks {
     Block DISRUPTER = createWithItem("disrupter", DisrupterBlock::new, Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.TRIAL_SPAWNER).emissiveLighting((state, world, pos) -> true).luminance(value -> 1), new Item.Settings());
     Block RESTRICTOR = createWithItem("restrictor", RestrictorBlock::new, Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.TRIAL_SPAWNER).luminance(value -> 2), new Item.Settings());
 
+    Block KLAPROTH_TUBE = createWithItem("klaproth_tube", KlaprothTubeBlock::new,
+            Settings.copy(Blocks.CHAIN).sounds(BlockSoundGroup.TRIAL_SPAWNER).luminance(value -> 9),
+            new Item.Settings().maxCount(16));
 
+    Block LUMINANT_KLAPROTH_TUBE = createWithItem("klaproth_tube_luminant", KlaprothTubeBlock::new,
+            Settings.copy(Blocks.CHAIN).sounds(BlockSoundGroup.TRIAL_SPAWNER).luminance(value -> 9),
+            new Item.Settings().maxCount(16));
+
+    Block SCULK_KLAPROTH_TUBE = createWithItem("klaproth_tube_sculk", KlaprothTubeBlock::new,
+            Settings.copy(Blocks.CHAIN).sounds(BlockSoundGroup.TRIAL_SPAWNER).luminance(value -> 9),
+            new Item.Settings().maxCount(16));
+
+    Block SILLY_KLAPROTH_TUBE = createWithItem("klaproth_tube_silly", KlaprothTubeBlock::new,
+            Settings.copy(Blocks.CHAIN).sounds(BlockSoundGroup.TRIAL_SPAWNER).luminance(value -> 9),
+            new Item.Settings().maxCount(16));
+
+    Block RED_KLAPROTH_TUBE = createWithItem("klaproth_tube_red", KlaprothTubeBlock::new,
+            Settings.copy(Blocks.CHAIN).sounds(BlockSoundGroup.TRIAL_SPAWNER).luminance(value -> 9),
+            new Item.Settings().maxCount(16));
 
     static Block create(String name, Function<Settings, Block> factory, Settings settings) {
         Block block = factory.apply(settings);

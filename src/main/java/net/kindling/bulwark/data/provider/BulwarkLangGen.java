@@ -26,6 +26,11 @@ public class BulwarkLangGen extends FabricLanguageProvider {
         translationBuilder.add(DISRUPTER, "Disrupter");
         translationBuilder.add(RESTRICTOR, "Restrictor");
 
+        translationBuilder.add(KLAPROTH_TUBE, "Klaproth Tube");
+        translationBuilder.add(RED_KLAPROTH_TUBE, "Red Klaproth Tube");
+        translationBuilder.add(SCULK_KLAPROTH_TUBE, "Sculk Klaproth Tube");
+        translationBuilder.add(LUMINANT_KLAPROTH_TUBE, "Luminant Klaproth Tube");
+        translationBuilder.add(SILLY_KLAPROTH_TUBE, "Silly Klaproth Tube");
 
         // misc
         translationBuilder.add("itemGroup.bulwark", "Bulwark");

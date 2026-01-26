@@ -1,6 +1,12 @@
 {
   "block.bulwark.disrupter": "Disrupter",
   "block.bulwark.klaproth_block": "Block of Klaproth",
+  "block.bulwark.klaproth_tube": "Klaproth Tube",
+  "block.bulwark.klaproth_tube_luminant": "Luminant Klaproth Tube",
+  "block.bulwark.klaproth_tube_red": "Red Klaproth Tube",
+  "block.bulwark.klaproth_tube_sculk": "Sculk Klaproth Tube",
+  "block.bulwark.klaproth_tube_silly": "Silly Klaproth Tube",
+  "block.bulwark.restrictor": "Restrictor",
   "item.bulwark.klaproth": "Klaproth",
   "item.bulwark.operator_key": "Operator Key",
   "itemGroup.bulwark": "Bulwark"
