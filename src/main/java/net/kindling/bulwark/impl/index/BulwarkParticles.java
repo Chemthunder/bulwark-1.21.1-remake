@@ -12,6 +12,8 @@ import net.minecraft.registry.Registry;
 public interface BulwarkParticles {
 
     SimpleParticleType WARNING = FabricParticleTypes.simple(true);
+    SimpleParticleType ACTINISM = FabricParticleTypes.simple(true);
+    SimpleParticleType DISRUPTER = FabricParticleTypes.simple(true);
 
     private static void create(String name, ParticleType<?> particle) {
         Registry.register(Registries.PARTICLE_TYPE, Bulwark.id(name), particle);
@@ -19,9 +21,13 @@ public interface BulwarkParticles {
 
     static void index() {
         create("warning", WARNING);
+        create("actinism", ACTINISM);
+        create("disrupter", DISRUPTER);
     }
 
     static void clientIndex() {
         ParticleFactoryRegistry.getInstance().register(WARNING, EndRodParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ACTINISM, EndRodParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(DISRUPTER, EndRodParticle.Factory::new);
     }
 }

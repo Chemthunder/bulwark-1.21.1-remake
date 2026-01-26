@@ -2,5 +2,6 @@
   "block.bulwark.disrupter": "Disrupter",
   "block.bulwark.klaproth_block": "Block of Klaproth",
   "item.bulwark.klaproth": "Klaproth",
-  "item.bulwark.operator_key": "Operator Key"
+  "item.bulwark.operator_key": "Operator Key",
+  "itemGroup.bulwark": "Bulwark"
 }

@@ -1,5 +1,6 @@
 package net.kindling.bulwark.impl;
 
+import net.acoyt.acornlib.api.ALib;
 import net.fabricmc.api.ModInitializer;
 import net.kindling.bulwark.impl.index.*;
 import net.minecraft.util.Identifier;
@@ -14,6 +15,8 @@ public class Bulwark implements ModInitializer {
     }
 
 
+
+
 	public void onInitialize() {
         BulwarkParticles.index();
         BulwarkBlocks.index();
@@ -21,6 +24,11 @@ public class Bulwark implements ModInitializer {
         BulwarkItems.index();
         BulwarkItemGroups.index();
 
+        DisrupterProperties.index();
+
 		LOGGER.info("Kindling the cinders");
+
+        ALib.registerModIcon(MOD_ID, Bulwark.id("lil_guy_but_he_sparkles.png"));
+        ALib.registerModMenu(MOD_ID, 0xbd00d8);
 	}
 }

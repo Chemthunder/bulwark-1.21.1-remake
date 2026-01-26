@@ -6,8 +6,7 @@ import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.kindling.bulwark.impl.index.BulwarkBlocks.DISRUPTER;
-import static net.kindling.bulwark.impl.index.BulwarkBlocks.KLAPROTH_BLOCK;
+import static net.kindling.bulwark.impl.index.BulwarkBlocks.*;
 import static net.kindling.bulwark.impl.index.BulwarkItems.KLAPROTH;
 import static net.kindling.bulwark.impl.index.BulwarkItems.OPERATOR_KEY;
 
@@ -25,5 +24,10 @@ public class BulwarkLangGen extends FabricLanguageProvider {
         // blocks
         translationBuilder.add(KLAPROTH_BLOCK, "Block of Klaproth");
         translationBuilder.add(DISRUPTER, "Disrupter");
+        translationBuilder.add(RESTRICTOR, "Restrictor");
+
+
+        // misc
+        translationBuilder.add("itemGroup.bulwark", "Bulwark");
     }
 }
