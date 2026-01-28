@@ -3,6 +3,7 @@ package net.kindling.bulwark.impl.index;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.kindling.bulwark.impl.Bulwark;
+import net.kindling.bulwark.impl.client.particle.SculkShockwaveParticle;
 import net.minecraft.client.particle.EndRodParticle;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.particle.SimpleParticleType;
@@ -14,6 +15,8 @@ public interface BulwarkParticles {
     SimpleParticleType WARNING = FabricParticleTypes.simple(true);
     SimpleParticleType ACTINISM = FabricParticleTypes.simple(true);
     SimpleParticleType DISRUPTER = FabricParticleTypes.simple(true);
+    SimpleParticleType SHOCKWAVE = FabricParticleTypes.simple(true);
+    SimpleParticleType SCULK_SHOCKWAVE = FabricParticleTypes.simple(true);
 
     SimpleParticleType SPARKLE_BASE = FabricParticleTypes.simple(true);
     SimpleParticleType SPARKLE_LUMINANT = FabricParticleTypes.simple(true);
@@ -30,6 +33,8 @@ public interface BulwarkParticles {
         create("warning", WARNING);
         create("actinism", ACTINISM);
         create("disrupter", DISRUPTER);
+        create("shockwave", SHOCKWAVE);
+        create("sculk_shockwave", SCULK_SHOCKWAVE);
 
         create("sparkle_base", SPARKLE_BASE);
         create("sparkle_luminant", SPARKLE_LUMINANT);
@@ -43,6 +48,8 @@ public interface BulwarkParticles {
         ParticleFactoryRegistry.getInstance().register(WARNING, EndRodParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ACTINISM, EndRodParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(DISRUPTER, EndRodParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(SHOCKWAVE, EndRodParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(SCULK_SHOCKWAVE, SculkShockwaveParticle.Factory::new);
 
         ParticleFactoryRegistry.getInstance().register(SPARKLE_BASE, EndRodParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(SPARKLE_LUMINANT, EndRodParticle.Factory::new);

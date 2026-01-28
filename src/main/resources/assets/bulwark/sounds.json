@@ -1,0 +1,8 @@
+{
+  "block.plush_explode": {
+    "subtitle": "sounds.bulwark.plush_explode",
+    "sounds": [
+      "bulwark:block/plush_explode"
+    ]
+  }
+}

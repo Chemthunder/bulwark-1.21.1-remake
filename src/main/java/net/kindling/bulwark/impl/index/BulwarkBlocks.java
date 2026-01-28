@@ -1,14 +1,13 @@
 package net.kindling.bulwark.impl.index;
 
 import net.acoyt.acornlib.impl.item.TranslationBlockItem;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.kindling.bulwark.impl.Bulwark;
-import net.kindling.bulwark.impl.block.DisrupterBlock;
-import net.kindling.bulwark.impl.block.KlaprothBlock;
-import net.kindling.bulwark.impl.block.KlaprothTubeBlock;
-import net.kindling.bulwark.impl.block.RestrictorBlock;
+import net.kindling.bulwark.impl.block.*;
 import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -20,6 +19,14 @@ public interface BulwarkBlocks {
     Block KLAPROTH_BLOCK = create("klaproth_block", KlaprothBlock::new, Settings.copy(Blocks.AMETHYST_BLOCK));
     Block DISRUPTER = createWithItem("disrupter", DisrupterBlock::new, Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.TRIAL_SPAWNER).emissiveLighting((state, world, pos) -> true).luminance(value -> 1), new Item.Settings());
     Block RESTRICTOR = createWithItem("restrictor", RestrictorBlock::new, Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.TRIAL_SPAWNER).luminance(value -> 2), new Item.Settings());
+
+
+    Block BUDDING_KLAPROTH = createWithItem("budding_klaproth", BuddingKlaprothBlock::new, Settings.copy(Blocks.BUDDING_AMETHYST).sounds(BlockSoundGroup.BASALT).luminance(value -> 3), new Item.Settings());
+    Block SMALL_KLAPROTH_BUD = createWithItem("small_klaproth_bud", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 2), new Item.Settings());
+    Block MEDIUM_KLAPROTH_BUD = createWithItem("medium_klaproth_bud", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 4), new Item.Settings());
+    Block LARGE_KLAPROTH_BUD = createWithItem("large_klaproth_bud", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 6), new Item.Settings());
+    Block KLAPROTH_CLUSTER = createWithItem("klaproth_cluster", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 8), new Item.Settings());
+
 
     Block KLAPROTH_TUBE = createWithItem("klaproth_tube", KlaprothTubeBlock::new,
             Settings.copy(Blocks.CHAIN).sounds(BlockSoundGroup.TRIAL_SPAWNER).luminance(value -> 9),
@@ -56,5 +63,18 @@ public interface BulwarkBlocks {
 
     }
 
-    static void clientIndex() {}
+    static void clientIndex() {
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+                KLAPROTH_CLUSTER,
+                KLAPROTH_CLUSTER,
+                SMALL_KLAPROTH_BUD,
+                LARGE_KLAPROTH_BUD,
+                MEDIUM_KLAPROTH_BUD,
+                KLAPROTH_TUBE,
+                RED_KLAPROTH_TUBE,
+                SILLY_KLAPROTH_TUBE,
+                SCULK_KLAPROTH_TUBE,
+                LUMINANT_KLAPROTH_TUBE
+        );
+    }
 }

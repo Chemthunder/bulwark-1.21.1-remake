@@ -15,9 +15,6 @@ public class Bulwark implements ModInitializer {
         return Identifier.of(MOD_ID, path);
     }
 
-
-
-
 	public void onInitialize() {
         BulwarkParticles.index();
         BulwarkBlocks.index();
@@ -25,6 +22,8 @@ public class Bulwark implements ModInitializer {
         BulwarkItems.index();
         BulwarkItemGroups.index();
         BulwarkProperties.index();
+        BulwarkStatusEffects.index();
+        BulwarkSounds.index();
 
 		LOGGER.info("Kindling the cinders");
 

@@ -1,7 +1,5 @@
 package net.kindling.bulwark.impl.util;
 
-import net.acoyt.acornlib.api.util.ParticleUtils;
-import net.minecraft.particle.ParticleUtil;
 import net.minecraft.state.property.EnumProperty;
 
 public class BulwarkProperties {

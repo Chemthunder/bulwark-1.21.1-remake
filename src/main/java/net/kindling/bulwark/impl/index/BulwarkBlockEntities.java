@@ -3,6 +3,7 @@ package net.kindling.bulwark.impl.index;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.kindling.bulwark.impl.Bulwark;
 import net.kindling.bulwark.impl.block.entity.DisrupterBlockEntity;
+import net.kindling.bulwark.impl.block.entity.RestrictorBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
@@ -19,6 +20,11 @@ public interface BulwarkBlockEntities {
     BlockEntityType<DisrupterBlockEntity> DISRUPTER = create("disrupter", FabricBlockEntityTypeBuilder
             .create(DisrupterBlockEntity::new)
             .addBlocks(BulwarkBlocks.DISRUPTER)
+            .build());
+
+    BlockEntityType<RestrictorBlockEntity> RESTRICTOR = create("restrictor", FabricBlockEntityTypeBuilder
+            .create(RestrictorBlockEntity::new)
+            .addBlocks(BulwarkBlocks.RESTRICTOR)
             .build());
 
     private static <T extends BlockEntity> BlockEntityType<T> create(String name, BlockEntityType<T> blockEntity) {

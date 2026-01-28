@@ -2,6 +2,7 @@ package net.kindling.bulwark.impl.index;
 
 import net.kindling.bulwark.impl.Bulwark;
 import net.kindling.bulwark.impl.block.item.KlaprothBlockItem;
+import net.kindling.bulwark.impl.item.ComicallyLargeLollipopItem;
 import net.kindling.bulwark.impl.item.KlaprothItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -27,6 +28,7 @@ public interface BulwarkItems {
 
     // misc
     Item OPERATOR_KEY = create("operator_key", Item::new, new Item.Settings().maxCount(1));
+    Item COMICALLY_LARGE_LOLLIPOP = create("comically_large_lollipop", ComicallyLargeLollipopItem::new, new Item.Settings().maxCount(1));
 
 
     static Item create(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {
