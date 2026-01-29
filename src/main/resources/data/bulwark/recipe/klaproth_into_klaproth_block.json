@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "KK",
+    "KK"
+  ],
+  "key": {
+    "K": {
+      "item": "bulwark:klaproth"
+    }
+  },
+  "result": {
+    "id": "bulwark:klaproth_block",
+    "count": 1
+  }
+}

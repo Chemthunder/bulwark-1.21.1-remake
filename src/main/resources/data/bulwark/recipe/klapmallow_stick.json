@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "show_notification": false,
+  "pattern": [
+    " K",
+    "s "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "K": {
+      "item": "bulwark:klaproth_chunk"
+    }
+  },
+  "result": {
+    "id": "bulwark:klapmallow_stick",
+    "count": 1
+  }
+}

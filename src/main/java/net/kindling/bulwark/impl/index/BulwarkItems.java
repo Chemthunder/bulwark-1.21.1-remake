@@ -14,6 +14,8 @@ import static net.acoyt.acornlib.api.util.ItemUtils.modifyItemNameColor;
 @SuppressWarnings("deprecation")
 public interface BulwarkItems {
     Item KLAPROTH = create("klaproth", KlaprothItem::new, new Item.Settings().maxCount(16).fireproof());
+    Item KLAPROTH_CHUNK = create("klaproth_chunk", KlaprothItem::new, new Item.Settings().fireproof());
+
     Item COMICALLY_LARGE_LOLLIPOP = create("comically_large_lollipop", ComicallyLargeLollipopItem::new, new Item.Settings().maxCount(1));
     Item KLAPROTH_CANDY = create("klaproth_candy", EdibleKlaprothItem::new, new Item.Settings().maxCount(16));
 

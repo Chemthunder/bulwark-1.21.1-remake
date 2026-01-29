@@ -1,10 +1,8 @@
 package net.kindling.bulwark.impl.block;
 
 import com.mojang.serialization.MapCodec;
-import net.kindling.bulwark.impl.block.entity.DisrupterBlockEntity;
 import net.kindling.bulwark.impl.block.entity.RestrictorBlockEntity;
 import net.kindling.bulwark.impl.index.BulwarkBlockEntities;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;

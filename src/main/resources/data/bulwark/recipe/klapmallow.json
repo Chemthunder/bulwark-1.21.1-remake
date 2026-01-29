@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "show_notification": false,
+  "pattern": [
+    "SKW"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "K": {
+      "item": "bulwark:klaproth_chunk"
+    },
+    "W": {
+      "item": "minecraft:sweet_berries"
+    }
+  },
+  "result": {
+    "id": "bulwark:klapmallow",
+    "count": 2
+  }
+}

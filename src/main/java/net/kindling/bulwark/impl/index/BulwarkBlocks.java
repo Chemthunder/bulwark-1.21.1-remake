@@ -22,7 +22,7 @@ public interface BulwarkBlocks {
 
     Block DISRUPTER = createWithItem("disrupter", DisrupterBlock::new, Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.TRIAL_SPAWNER).emissiveLighting((state, world, pos) -> true).luminance(value -> 1), new Item.Settings());
     Block RESTRICTOR = createWithItem("restrictor", RestrictorBlock::new, Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.TRIAL_SPAWNER).emissiveLighting((state, world, pos) -> true).luminance(value -> 1), new Item.Settings());
-
+    Block TAINTED_GLASS = createWithItem("tainted_glass", TaintedGlassBlock::new, Settings.copy(Blocks.TINTED_GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), new Item.Settings());
 
     Block BUDDING_KLAPROTH = createWithItem("budding_klaproth", BuddingKlaprothBlock::new, Settings.copy(Blocks.BUDDING_AMETHYST).nonOpaque().emissiveLighting((state, world, pos) -> true).sounds(BlockSoundGroup.BASALT).luminance(value -> 3), new Item.Settings());
     Block SMALL_KLAPROTH_BUD = createWithItem("small_klaproth_bud", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).nonOpaque().emissiveLighting((state, world, pos) -> true).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 2), new Item.Settings());
@@ -83,6 +83,10 @@ public interface BulwarkBlocks {
                 SILLY_KLAPROTH_TUBE,
                 SCULK_KLAPROTH_TUBE,
                 LUMINANT_KLAPROTH_TUBE
+        );
+
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),
+                TAINTED_GLASS
         );
 
     }

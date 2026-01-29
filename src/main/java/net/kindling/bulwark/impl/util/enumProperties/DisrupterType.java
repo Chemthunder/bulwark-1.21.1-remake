@@ -1,11 +1,13 @@
-package net.kindling.bulwark.impl.util;
+package net.kindling.bulwark.impl.util.enumProperties;
 
 import net.minecraft.util.StringIdentifiable;
 
 public enum DisrupterType implements StringIdentifiable {
     EMPTY("empty"),
     LODESTONE("lodestone"),
+    CAMPFIRE("campfire"),
     SHRIEKER("shrieker");
+
 
     private final String name;
 

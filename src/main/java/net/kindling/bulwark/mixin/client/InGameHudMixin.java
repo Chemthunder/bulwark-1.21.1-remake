@@ -1,12 +1,10 @@
 package net.kindling.bulwark.mixin.client;
 
-import net.kindling.bulwark.api.IgnoredByActinismEffect;
 import net.kindling.bulwark.impl.index.BulwarkStatusEffects;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.render.RenderTickCounter;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

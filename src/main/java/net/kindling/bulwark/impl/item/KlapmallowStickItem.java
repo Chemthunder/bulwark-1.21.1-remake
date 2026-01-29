@@ -15,7 +15,6 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
@@ -56,7 +55,6 @@ public class KlapmallowStickItem extends Item implements ModelVaryingItem {
         if (stack.getOrDefault(comp, false) == true) {
             tooltip.add(Text.translatable("tooltip.roasted").withColor(0xffbd38));
         }
-
         super.appendTooltip(stack, context, tooltip, type);
     }
 

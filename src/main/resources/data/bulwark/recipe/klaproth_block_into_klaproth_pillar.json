@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "show_notification": false,
+  "ingredient": {
+    "item": "bulwark:klaproth_block"
+  },
+  "result": {
+    "id": "bulwark:klaproth_pillar",
+    "count": 2
+  }
+}

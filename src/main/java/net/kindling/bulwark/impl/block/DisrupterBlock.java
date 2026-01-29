@@ -4,7 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.kindling.bulwark.impl.block.entity.DisrupterBlockEntity;
 import net.kindling.bulwark.impl.index.BulwarkBlockEntities;
 import net.kindling.bulwark.impl.util.BulwarkProperties;
-import net.kindling.bulwark.impl.util.DisrupterType;
+import net.kindling.bulwark.impl.util.enumProperties.DisrupterType;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -59,13 +59,17 @@ public class DisrupterBlock extends BlockWithEntity {
     protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
         BlockState aboveState = world.getBlockState(pos.up());
 
-        if (aboveState.isOf(Blocks.LODESTONE) || aboveState.isOf(Blocks.SCULK_SHRIEKER)) {
+        if (aboveState.isOf(Blocks.LODESTONE) || aboveState.isOf(Blocks.SCULK_SHRIEKER) || aboveState.isOf(Blocks.CAMPFIRE)) {
             if (aboveState.isOf(Blocks.LODESTONE)) {
                 world.setBlockState(pos, world.getBlockState(pos).with(TYPE, DisrupterType.LODESTONE));
             }
 
             if (aboveState.isOf(Blocks.SCULK_SHRIEKER)) {
                 world.setBlockState(pos, world.getBlockState(pos).with(TYPE, DisrupterType.SHRIEKER));
+            }
+
+            if (aboveState.isOf(Blocks.CAMPFIRE)) {
+                world.setBlockState(pos, world.getBlockState(pos).with(TYPE, DisrupterType.CAMPFIRE));
             }
         } else {
             world.setBlockState(pos, world.getBlockState(pos).with(TYPE, DisrupterType.EMPTY));

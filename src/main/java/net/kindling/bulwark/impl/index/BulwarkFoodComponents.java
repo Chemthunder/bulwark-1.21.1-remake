@@ -1,8 +1,6 @@
 package net.kindling.bulwark.impl.index;
 
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 
 public interface BulwarkFoodComponents {
     FoodComponent KLAPMALLOW = new FoodComponent.Builder()

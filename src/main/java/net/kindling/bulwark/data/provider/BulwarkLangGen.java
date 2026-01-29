@@ -2,6 +2,7 @@ package net.kindling.bulwark.data.provider;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.kindling.bulwark.impl.block.TaintedGlassBlock;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -17,10 +18,13 @@ public class BulwarkLangGen extends FabricLanguageProvider {
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
         // items
         translationBuilder.add(KLAPROTH, "Klaproth");
+        translationBuilder.add(KLAPROTH_CHUNK, "Klaproth Chunk");
+
         translationBuilder.add(OPERATOR_KEY, "Operator Key");
 
         translationBuilder.add(KLAPMALLOW, "Klapmallow");
         translationBuilder.add(KLAPMALLOW_STICK, "Klapmallow on a Stick");
+        translationBuilder.add(KLAPROTH_CANDY, "Klaproth Candy");
 
         // blocks
         translationBuilder.add(KLAPROTH_BLOCK, "Block of Klaproth");
@@ -28,6 +32,7 @@ public class BulwarkLangGen extends FabricLanguageProvider {
 
         translationBuilder.add(DISRUPTER, "Disrupter");
         translationBuilder.add(RESTRICTOR, "Restrictor");
+        translationBuilder.add(TAINTED_GLASS, "Tainted Glass");
 
         translationBuilder.add(KLAPROTH_TUBE, "Klaproth Tube");
         translationBuilder.add(RED_KLAPROTH_TUBE, "Red Klaproth Tube");

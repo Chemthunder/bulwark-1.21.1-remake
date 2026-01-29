@@ -8,6 +8,9 @@
     },
     "disrupter_type=shrieker": {
       "model": "bulwark:block/disrupter_shrieker"
+    },
+    "disrupter_type=campfire": {
+      "model": "bulwark/block/disrupter_campfire"
     }
   }
 }

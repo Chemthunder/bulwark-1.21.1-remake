@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "bulwark:klaproth"
+    }
+  ],
+  "result": {
+    "id": "bulwark:klaproth_chunk",
+    "count": 4
+  }
+}

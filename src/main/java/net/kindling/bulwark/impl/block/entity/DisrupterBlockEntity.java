@@ -3,15 +3,12 @@ package net.kindling.bulwark.impl.block.entity;
 import net.acoyt.acornlib.impl.init.tag.AcornBlockTags;
 import net.kindling.bulwark.impl.index.*;
 import net.kindling.bulwark.impl.util.BulwarkProperties;
-import net.kindling.bulwark.impl.util.DisrupterType;
+import net.kindling.bulwark.impl.util.enumProperties.DisrupterType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.TntEntity;
-import net.minecraft.entity.vehicle.TntMinecartEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
@@ -50,46 +47,78 @@ public class DisrupterBlockEntity extends BlockEntity {
             }
         }
 
-        if (aboveState.isIn(BlockTags.AIR) || aboveState.isOf(Blocks.SCULK_SHRIEKER) || aboveState.isOf(Blocks.LODESTONE)) {
-            Box area = new Box(pos).expand(aboveState.isIn(BlockTags.AIR) ? 7 : aboveState.isOf(Blocks.SCULK_SHRIEKER) ? 3 : 5);
+        if (aboveState.isIn(BlockTags.AIR) || aboveState.isOf(Blocks.SCULK_SHRIEKER) || aboveState.isOf(Blocks.LODESTONE) || aboveState.isOf(Blocks.CAMPFIRE)) {
+            Box area = new Box(pos).expand(aboveState.isIn(BlockTags.AIR) ? 7 : aboveState.isOf(Blocks.SCULK_SHRIEKER) ? 3 : aboveState.isOf(Blocks.CAMPFIRE) ? 10 : 5);
             List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class, area, entity -> true);
 
             for (LivingEntity entity : entities) {
                 if (disrupter.active) {
                     if (!entity.getOffHandStack().isOf(BulwarkItems.OPERATOR_KEY)) {
                         if (!entity.isInCreativeMode()) {
-
                             if (aboveState.isOf(Blocks.LODESTONE)) {
-                                entity.setVelocity(area.getCenter().subtract(entity.getPos()).multiply(0.05));
+                                if (disrupter.delay > 0) {
+                                    disrupter.delay--;
+                                    if (disrupter.delay == 0) {
+                                        disrupter.delay = 10;
+                                        entity.setVelocity(area.getCenter().subtract(entity.getPos()).multiply(0.05));
 
-                                if (world instanceof ServerWorld serverWorld) {
-                                    serverWorld.spawnParticles(ParticleTypes.END_ROD
-                                            , entity.getX(), entity.getY() + 1.0f, entity.getZ(),
-                                            1,
-                                            0,
-                                            0,
-                                            0,
-                                            0
-                                    );
+                                        if (world instanceof ServerWorld serverWorld) {
+                                            serverWorld.spawnParticles(ParticleTypes.END_ROD
+                                                    , entity.getX(), entity.getY() + 1.0f, entity.getZ(),
+                                                    1,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0
+                                            );
+                                        }
+                                    }
                                 }
-
                                 break;
                             }
 
                             if (aboveState.isOf(Blocks.SCULK_SHRIEKER)) {
-                                entity.setVelocity(area.getCenter().subtract(entity.getPos()).multiply(-0.05));
-
-                                if (world instanceof ServerWorld serverWorld) {
-                                    serverWorld.spawnParticles(ParticleTypes.SCULK_CHARGE_POP
-                                            , entity.getX(), entity.getY() + 1.0f, entity.getZ(),
-                                            1,
-                                            0,
-                                            0,
-                                            0,
-                                            0
-                                    );
+                                if (disrupter.delay > 0) {
+                                    disrupter.delay--;
+                                    if (disrupter.delay == 0) {
+                                        disrupter.delay = 45;
+                                        entity.setVelocity(area.getCenter().subtract(entity.getPos()).multiply(-0.05));
+                                        entity.damage(BulwarkDamageSources.radiation(entity), 3.5f);
+                                        if (world instanceof ServerWorld serverWorld) {
+                                            serverWorld.spawnParticles(ParticleTypes.SCULK_CHARGE_POP
+                                                    , entity.getX(), entity.getY() + 1.0f, entity.getZ(),
+                                                    1,
+                                                    0,
+                                                    0,
+                                                    0,
+                                                    0
+                                            );
+                                        }
+                                    }
                                 }
+                                break;
+                            }
 
+                            if (aboveState.isOf(Blocks.CAMPFIRE)) {
+                                if (disrupter.delay > 0) {
+                                    disrupter.delay--;
+                                    if (disrupter.delay == 0) {
+                                        disrupter.delay = 20;
+
+                                        entity.setOnFireFor(3);
+
+                                        if (world instanceof ServerWorld serverWorld) {
+                                            serverWorld.spawnParticles(ParticleTypes.FLAME
+                                                    , disrupter.pos.getX() + 0.5f, disrupter.pos.getY() + 0.5f, disrupter.pos.getZ() + 0.5f,
+                                                    4,
+                                                    0.3f,
+                                                    0.3f,
+                                                    0.3f,
+                                                    0.02f
+                                            );
+                                        }
+                                    }
+                                }
                                 break;
                             }
 
@@ -125,7 +154,6 @@ public class DisrupterBlockEntity extends BlockEntity {
                 }
             }
         }
-
 
         if (aboveState.isIn(AcornBlockTags.PLUSHIES)) {
             if (world instanceof ServerWorld serverWorld) {

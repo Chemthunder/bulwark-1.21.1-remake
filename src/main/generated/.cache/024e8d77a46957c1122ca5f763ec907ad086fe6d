@@ -1,5 +1,6 @@
-// 1.21.1	2026-01-28T18:34:11.8896684	Bulwark/Block Loot Tables
+// 1.21.1	2026-01-28T21:14:15.1868044	Bulwark/Block Loot Tables
 924aad80828e15f01d4c5ed9c453de3292dbc330 data\bulwark\loot_table\blocks\klaproth_pillar.json
+3207638bb517555d83278fb3444f490c82d9268a data\bulwark\loot_table\blocks\tainted_glass.json
 28a87fb9f6f64cb4e4b876509fbb15438d59c5a0 data\bulwark\loot_table\blocks\small_klaproth_bud.json
 63cbfc925533da023b561fb123b68b6669ac4de7 data\bulwark\loot_table\blocks\restrictor.json
 02f08dd9d78b5da38bf25ed18e98b99a1835a606 data\bulwark\loot_table\blocks\klaproth_tube_red.json

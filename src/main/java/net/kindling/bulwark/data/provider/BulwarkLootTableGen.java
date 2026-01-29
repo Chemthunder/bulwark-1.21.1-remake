@@ -2,7 +2,6 @@ package net.kindling.bulwark.data.provider;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.kindling.bulwark.impl.index.BulwarkBlocks;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -26,6 +25,7 @@ public class BulwarkLootTableGen extends FabricBlockLootTableProvider {
 
         addDrop(DISRUPTER);
         addDrop(RESTRICTOR);
+        addDropWithSilkTouch(TAINTED_GLASS);
 
         addDropWithSilkTouch(KLAPROTH_CLUSTER);
         addDropWithSilkTouch(LARGE_KLAPROTH_BUD);

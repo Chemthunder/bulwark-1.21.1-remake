@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "tainted_glass_type=empty": {
+      "model": "bulwark:block/tainted_glass"
+    },
+    "tainted_glass_type=crystallized": {
+      "model": "bulwark:block/crystallized_glass"
+    },
+    "tainted_glass_type=metallic": {
+      "model": "bulwark:block/metallic_glass"
+    }
+  }
+}
