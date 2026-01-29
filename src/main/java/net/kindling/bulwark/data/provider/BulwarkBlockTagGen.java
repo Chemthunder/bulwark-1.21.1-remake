@@ -32,6 +32,7 @@ public class BulwarkBlockTagGen extends FabricTagProvider.BlockTagProvider {
                 .add(MEDIUM_KLAPROTH_BUD)
                 .add(LARGE_KLAPROTH_BUD)
                 .add(KLAPROTH_CLUSTER)
+                .add(BUDDING_KLAPROTH)
 
                 ;
 
@@ -52,6 +53,7 @@ public class BulwarkBlockTagGen extends FabricTagProvider.BlockTagProvider {
                 .add(MEDIUM_KLAPROTH_BUD)
                 .add(LARGE_KLAPROTH_BUD)
                 .add(KLAPROTH_CLUSTER)
+                .add(BUDDING_KLAPROTH)
 
         ;
     }

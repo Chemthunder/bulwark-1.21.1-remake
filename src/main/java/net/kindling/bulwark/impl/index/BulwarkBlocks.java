@@ -24,7 +24,7 @@ public interface BulwarkBlocks {
     Block RESTRICTOR = createWithItem("restrictor", RestrictorBlock::new, Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.TRIAL_SPAWNER).emissiveLighting((state, world, pos) -> true).luminance(value -> 1), new Item.Settings());
     Block TAINTED_GLASS = createWithItem("tainted_glass", TaintedGlassBlock::new, Settings.copy(Blocks.TINTED_GLASS).sounds(BlockSoundGroup.GLASS).nonOpaque(), new Item.Settings());
 
-    Block BUDDING_KLAPROTH = createWithItem("budding_klaproth", BuddingKlaprothBlock::new, Settings.copy(Blocks.BUDDING_AMETHYST).nonOpaque().emissiveLighting((state, world, pos) -> true).sounds(BlockSoundGroup.BASALT).luminance(value -> 3), new Item.Settings());
+    Block BUDDING_KLAPROTH = createWithItem("budding_klaproth", BuddingKlaprothBlock::new, Settings.copy(Blocks.BUDDING_AMETHYST).nonOpaque().sounds(BlockSoundGroup.BASALT).luminance(value -> 3), new Item.Settings());
     Block SMALL_KLAPROTH_BUD = createWithItem("small_klaproth_bud", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).nonOpaque().emissiveLighting((state, world, pos) -> true).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 2), new Item.Settings());
     Block MEDIUM_KLAPROTH_BUD = createWithItem("medium_klaproth_bud", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).nonOpaque().emissiveLighting((state, world, pos) -> true).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 4), new Item.Settings());
     Block LARGE_KLAPROTH_BUD = createWithItem("large_klaproth_bud", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).nonOpaque().emissiveLighting((state, world, pos) -> true).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 6), new Item.Settings());
