@@ -22,5 +22,9 @@ public class BulwarkModelGen extends FabricModelProvider {
         generator.register(KLAPROTH, Models.GENERATED);
         generator.register(OPERATOR_KEY, Models.GENERATED);
         generator.register(COMICALLY_LARGE_LOLLIPOP, Models.GENERATED);
+
+        generator.register(KLAPMALLOW, Models.GENERATED);
+        generator.register(KLAPMALLOW_STICK, Models.HANDHELD);
+        generator.register(KLAPROTH_CANDY, Models.GENERATED);
     }
 }

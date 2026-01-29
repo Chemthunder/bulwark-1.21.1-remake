@@ -1,9 +1,7 @@
 package net.kindling.bulwark.impl.index;
 
 import net.kindling.bulwark.impl.Bulwark;
-import net.kindling.bulwark.impl.block.item.KlaprothBlockItem;
-import net.kindling.bulwark.impl.item.ComicallyLargeLollipopItem;
-import net.kindling.bulwark.impl.item.KlaprothItem;
+import net.kindling.bulwark.impl.item.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -15,21 +13,14 @@ import static net.acoyt.acornlib.api.util.ItemUtils.modifyItemNameColor;
 
 @SuppressWarnings("deprecation")
 public interface BulwarkItems {
-
-    Item KLAPROTH = create("klaproth", KlaprothItem::new, new Item.Settings()
-            .maxCount(16)
-            .fireproof()
-    );
-
-
-    // blockItems
-    Item KLAPROTH_BLOCK_ITEM = create("klaproth_block", KlaprothBlockItem::new, new Item.Settings());
-
-
-    // misc
-    Item OPERATOR_KEY = create("operator_key", Item::new, new Item.Settings().maxCount(1));
+    Item KLAPROTH = create("klaproth", KlaprothItem::new, new Item.Settings().maxCount(16).fireproof());
     Item COMICALLY_LARGE_LOLLIPOP = create("comically_large_lollipop", ComicallyLargeLollipopItem::new, new Item.Settings().maxCount(1));
+    Item KLAPROTH_CANDY = create("klaproth_candy", EdibleKlaprothItem::new, new Item.Settings().maxCount(16));
 
+    Item KLAPMALLOW = create("klapmallow", KlapmallowItem::new, new Item.Settings().food(BulwarkFoodComponents.KLAPMALLOW).maxCount(16));
+    Item KLAPMALLOW_STICK = create("klapmallow_stick", KlapmallowStickItem::new, new Item.Settings().food(BulwarkFoodComponents.KLAPMALLOW_STICK).maxCount(1));
+
+    Item OPERATOR_KEY = create("operator_key", Item::new, new Item.Settings().maxCount(1));
 
     static Item create(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {
         Item item = factory.apply(settings);

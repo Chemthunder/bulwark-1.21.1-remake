@@ -13,8 +13,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 
 import static net.kindling.bulwark.impl.index.BulwarkBlocks.*;
-import static net.kindling.bulwark.impl.index.BulwarkItems.KLAPROTH;
-import static net.kindling.bulwark.impl.index.BulwarkItems.OPERATOR_KEY;
+import static net.kindling.bulwark.impl.index.BulwarkItems.*;
 
 public interface BulwarkItemGroups {
     RegistryKey<ItemGroup> GROUP_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Bulwark.id("bulwark"));
@@ -32,6 +31,8 @@ public interface BulwarkItemGroups {
     private static void addEntries(FabricItemGroupEntries itemGroup) {
         itemGroup.add(KLAPROTH);
         itemGroup.add(KLAPROTH_BLOCK);
+        itemGroup.add(KLAPROTH_PILLAR);
+
         itemGroup.add(SMALL_KLAPROTH_BUD);
         itemGroup.add(MEDIUM_KLAPROTH_BUD);
         itemGroup.add(LARGE_KLAPROTH_BUD);
@@ -47,5 +48,9 @@ public interface BulwarkItemGroups {
         itemGroup.add(RED_KLAPROTH_TUBE);
         itemGroup.add(SCULK_KLAPROTH_TUBE);
         itemGroup.add(SILLY_KLAPROTH_TUBE);
+
+        itemGroup.add(KLAPMALLOW);
+        itemGroup.add(KLAPMALLOW_STICK);
+        itemGroup.add(KLAPROTH_CANDY);
     }
 }

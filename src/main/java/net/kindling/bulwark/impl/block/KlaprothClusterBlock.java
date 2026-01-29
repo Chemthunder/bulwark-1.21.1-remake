@@ -12,15 +12,13 @@ public class KlaprothClusterBlock extends Block {
         super(settings);
     }
 
-    //private static final VoxelShape SHAPE;
+    private static final VoxelShape SHAPE = createCuboidShape(3.0F, 0.0F, 3.0F, 13.0F, 10.0F, 13.0F);
 
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return super.getOutlineShape(state, world, pos, context);
+        return SHAPE;
     }
 
-    // Block.createCuboidShape((double)xzOffset, (double)0.0F, (double)xzOffset, (double)(16.0F - xzOffset), (double)height, (double)(16.0F - xzOffset));
-
-    static {
-        //SHAPE = Block.createCuboidShape((double)xzOffset, (double)0.0F, (double)xzOffset, (double)(16.0F - xzOffset), (double)height, (double)(16.0F - xzOffset));
+    protected boolean hasSidedTransparency(BlockState state) {
+        return true;
     }
 }

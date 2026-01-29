@@ -1,13 +1,27 @@
 {
+  "block.bulwark.budding_klaproth": "Budding Klaproth",
   "block.bulwark.disrupter": "Disrupter",
   "block.bulwark.klaproth_block": "Block of Klaproth",
+  "block.bulwark.klaproth_cluster": "Klaproth Cluster",
+  "block.bulwark.klaproth_pillar": "Klaproth Pillar",
   "block.bulwark.klaproth_tube": "Klaproth Tube",
   "block.bulwark.klaproth_tube_luminant": "Luminant Klaproth Tube",
   "block.bulwark.klaproth_tube_red": "Red Klaproth Tube",
   "block.bulwark.klaproth_tube_sculk": "Sculk Klaproth Tube",
   "block.bulwark.klaproth_tube_silly": "Silly Klaproth Tube",
+  "block.bulwark.large_klaproth_bud": "Large Klaproth Bud",
+  "block.bulwark.medium_klaproth_bud": "Medium Klaproth Bud",
   "block.bulwark.restrictor": "Restrictor",
+  "block.bulwark.small_klaproth_bud": "Small Klaproth Bud",
+  "effect.bulwark.actinism": "Actinism",
+  "item.bulwark.klapmallow": "Klapmallow",
+  "item.bulwark.klapmallow_stick": "Klapmallow on a Stick",
   "item.bulwark.klaproth": "Klaproth",
   "item.bulwark.operator_key": "Operator Key",
-  "itemGroup.bulwark": "Bulwark"
+  "item.minecraft.lingering_potion.effect.actinism": "Lingering Potion of Distortion",
+  "item.minecraft.potion.effect.actinism": "Potion of Distortion",
+  "item.minecraft.splash_potion.effect.actinism": "Splash Potion of Distortion",
+  "item.minecraft.tipped_arrow.effect.actinism": "Arrow of Distortion",
+  "itemGroup.bulwark": "Bulwark",
+  "tooltip.roasted": "Roasted"
 }

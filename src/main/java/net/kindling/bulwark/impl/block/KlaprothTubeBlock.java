@@ -72,6 +72,4 @@ public class KlaprothTubeBlock extends RodBlock {
     protected boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
-
-
 }

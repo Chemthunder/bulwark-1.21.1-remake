@@ -7,8 +7,7 @@ import net.minecraft.registry.RegistryWrapper;
 import java.util.concurrent.CompletableFuture;
 
 import static net.kindling.bulwark.impl.index.BulwarkBlocks.*;
-import static net.kindling.bulwark.impl.index.BulwarkItems.KLAPROTH;
-import static net.kindling.bulwark.impl.index.BulwarkItems.OPERATOR_KEY;
+import static net.kindling.bulwark.impl.index.BulwarkItems.*;
 
 public class BulwarkLangGen extends FabricLanguageProvider {
     public BulwarkLangGen(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
@@ -20,9 +19,13 @@ public class BulwarkLangGen extends FabricLanguageProvider {
         translationBuilder.add(KLAPROTH, "Klaproth");
         translationBuilder.add(OPERATOR_KEY, "Operator Key");
 
+        translationBuilder.add(KLAPMALLOW, "Klapmallow");
+        translationBuilder.add(KLAPMALLOW_STICK, "Klapmallow on a Stick");
 
         // blocks
         translationBuilder.add(KLAPROTH_BLOCK, "Block of Klaproth");
+        translationBuilder.add(KLAPROTH_PILLAR, "Klaproth Pillar");
+
         translationBuilder.add(DISRUPTER, "Disrupter");
         translationBuilder.add(RESTRICTOR, "Restrictor");
 
@@ -32,7 +35,21 @@ public class BulwarkLangGen extends FabricLanguageProvider {
         translationBuilder.add(LUMINANT_KLAPROTH_TUBE, "Luminant Klaproth Tube");
         translationBuilder.add(SILLY_KLAPROTH_TUBE, "Silly Klaproth Tube");
 
+        translationBuilder.add(SMALL_KLAPROTH_BUD, "Small Klaproth Bud");
+        translationBuilder.add(MEDIUM_KLAPROTH_BUD, "Medium Klaproth Bud");
+        translationBuilder.add(LARGE_KLAPROTH_BUD, "Large Klaproth Bud");
+        translationBuilder.add(KLAPROTH_CLUSTER, "Klaproth Cluster");
+        translationBuilder.add(BUDDING_KLAPROTH, "Budding Klaproth");
+
         // misc
         translationBuilder.add("itemGroup.bulwark", "Bulwark");
+        translationBuilder.add("effect.bulwark.actinism", "Actinism");
+
+        translationBuilder.add("item.minecraft.potion.effect.actinism", "Potion of Distortion");
+        translationBuilder.add("item.minecraft.splash_potion.effect.actinism", "Splash Potion of Distortion");
+        translationBuilder.add("item.minecraft.lingering_potion.effect.actinism", "Lingering Potion of Distortion");
+        translationBuilder.add("item.minecraft.tipped_arrow.effect.actinism", "Arrow of Distortion");
+
+        translationBuilder.add("tooltip.roasted", "Roasted");
     }
 }

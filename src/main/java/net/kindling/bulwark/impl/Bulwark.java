@@ -4,6 +4,7 @@ import net.acoyt.acornlib.api.ALib;
 import net.fabricmc.api.ModInitializer;
 import net.kindling.bulwark.impl.index.*;
 import net.kindling.bulwark.impl.util.BulwarkProperties;
+import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,8 @@ public class Bulwark implements ModInitializer {
         BulwarkProperties.index();
         BulwarkStatusEffects.index();
         BulwarkSounds.index();
+        BulwarkPotions.index();
+        BulwarkDataComponents.index();
 
 		LOGGER.info("Kindling the cinders");
 
