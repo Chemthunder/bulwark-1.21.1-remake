@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bulwark:small_klaproth_bud"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bulwark:impure_klaproth"
+  },
+  "show_notification": false
+}

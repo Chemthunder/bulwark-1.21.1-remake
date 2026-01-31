@@ -10,18 +10,23 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.property.EnumProperty;
+import net.minecraft.util.Uuids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 public class DisrupterBlockEntity extends BlockEntity {
     public DisrupterBlockEntity(BlockPos pos, BlockState state) {
@@ -30,6 +35,7 @@ public class DisrupterBlockEntity extends BlockEntity {
 
     private static final EnumProperty<DisrupterType> TYPE = BulwarkProperties.DISRUPTER_TYPE;
 
+    public List<UUID> ownerUuids = new ArrayList<>();
     public int startingDelay = 50;
     public int delay = 35;
     public boolean active = false;
@@ -54,61 +60,92 @@ public class DisrupterBlockEntity extends BlockEntity {
             for (LivingEntity entity : entities) {
                 if (disrupter.active) {
                     if (!entity.getOffHandStack().isOf(BulwarkItems.OPERATOR_KEY)) {
-                        if (!entity.isInCreativeMode()) {
-                            if (aboveState.isOf(Blocks.LODESTONE)) {
-                                if (disrupter.delay > 0) {
-                                    disrupter.delay--;
-                                    if (disrupter.delay == 0) {
-                                        disrupter.delay = 10;
-                                        entity.setVelocity(area.getCenter().subtract(entity.getPos()).multiply(0.05));
+                        if (!disrupter.ownerUuids.contains(entity.getUuid())) {
+                            if (!entity.isInCreativeMode()) {
+                                if (aboveState.isOf(Blocks.LODESTONE)) {
+                                    if (disrupter.delay > 0) {
+                                        disrupter.delay--;
+                                        if (disrupter.delay == 0) {
+                                            disrupter.delay = 10;
+                                            entity.setVelocity(area.getCenter().subtract(entity.getPos()).multiply(0.05));
 
-                                        if (world instanceof ServerWorld serverWorld) {
-                                            serverWorld.spawnParticles(ParticleTypes.END_ROD
-                                                    , entity.getX(), entity.getY() + 1.0f, entity.getZ(),
-                                                    1,
-                                                    0,
-                                                    0,
-                                                    0,
-                                                    0
-                                            );
+                                            if (world instanceof ServerWorld serverWorld) {
+                                                serverWorld.spawnParticles(ParticleTypes.END_ROD
+                                                        , entity.getX(), entity.getY() + 1.0f, entity.getZ(),
+                                                        1,
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                );
+                                            }
                                         }
                                     }
+                                    break;
                                 }
-                                break;
-                            }
 
-                            if (aboveState.isOf(Blocks.SCULK_SHRIEKER)) {
-                                if (disrupter.delay > 0) {
-                                    disrupter.delay--;
-                                    if (disrupter.delay == 0) {
-                                        disrupter.delay = 45;
-                                        entity.setVelocity(area.getCenter().subtract(entity.getPos()).multiply(-0.05));
-                                        entity.damage(BulwarkDamageSources.radiation(entity), 3.5f);
-                                        if (world instanceof ServerWorld serverWorld) {
-                                            serverWorld.spawnParticles(ParticleTypes.SCULK_CHARGE_POP
-                                                    , entity.getX(), entity.getY() + 1.0f, entity.getZ(),
-                                                    1,
-                                                    0,
-                                                    0,
-                                                    0,
-                                                    0
-                                            );
+                                if (aboveState.isOf(Blocks.SCULK_SHRIEKER)) {
+                                    if (disrupter.delay > 0) {
+                                        disrupter.delay--;
+                                        if (disrupter.delay == 0) {
+                                            disrupter.delay = 45;
+                                            entity.setVelocity(area.getCenter().subtract(entity.getPos()).multiply(-0.05));
+                                            entity.damage(BulwarkDamageSources.radiation(entity), 3.5f);
+                                            if (world instanceof ServerWorld serverWorld) {
+                                                serverWorld.spawnParticles(ParticleTypes.SCULK_CHARGE_POP
+                                                        , entity.getX(), entity.getY() + 1.0f, entity.getZ(),
+                                                        1,
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                );
+                                            }
                                         }
                                     }
+                                    break;
                                 }
-                                break;
-                            }
 
-                            if (aboveState.isOf(Blocks.CAMPFIRE)) {
+                                if (aboveState.isOf(Blocks.CAMPFIRE)) {
+                                    if (disrupter.delay > 0) {
+                                        disrupter.delay--;
+                                        if (disrupter.delay == 0) {
+                                            disrupter.delay = 20;
+
+                                            entity.setOnFireFor(3);
+
+                                            if (world instanceof ServerWorld serverWorld) {
+                                                serverWorld.spawnParticles(ParticleTypes.FLAME
+                                                        , disrupter.pos.getX() + 0.5f, disrupter.pos.getY() + 0.5f, disrupter.pos.getZ() + 0.5f,
+                                                        4,
+                                                        0.3f,
+                                                        0.3f,
+                                                        0.3f,
+                                                        0.02f
+                                                );
+                                            }
+                                        }
+                                    }
+                                    break;
+                                }
+
                                 if (disrupter.delay > 0) {
                                     disrupter.delay--;
                                     if (disrupter.delay == 0) {
                                         disrupter.delay = 20;
-
-                                        entity.setOnFireFor(3);
-
+                                        entity.setVelocity(area.getCenter().subtract(entity.getPos()).multiply(-0.1));
+                                        entity.damage(BulwarkDamageSources.radiation(entity), 0.5f);
                                         if (world instanceof ServerWorld serverWorld) {
-                                            serverWorld.spawnParticles(ParticleTypes.FLAME
+                                            serverWorld.spawnParticles(BulwarkParticles.DISRUPTER
+                                                    , entity.getX(), entity.getY() + 1.0f, entity.getZ(),
+                                                    4,
+                                                    0.03f,
+                                                    0.03f,
+                                                    0.03f,
+                                                    0.02f
+                                            );
+
+                                            serverWorld.spawnParticles(BulwarkParticles.SHOCKWAVE
                                                     , disrupter.pos.getX() + 0.5f, disrupter.pos.getY() + 0.5f, disrupter.pos.getZ() + 0.5f,
                                                     4,
                                                     0.3f,
@@ -117,35 +154,6 @@ public class DisrupterBlockEntity extends BlockEntity {
                                                     0.02f
                                             );
                                         }
-                                    }
-                                }
-                                break;
-                            }
-
-                            if (disrupter.delay > 0) {
-                                disrupter.delay--;
-                                if (disrupter.delay == 0) {
-                                    disrupter.delay = 20;
-                                    entity.setVelocity(area.getCenter().subtract(entity.getPos()).multiply(-0.1));
-                                    entity.damage(BulwarkDamageSources.radiation(entity), 0.5f);
-                                    if (world instanceof ServerWorld serverWorld) {
-                                        serverWorld.spawnParticles(BulwarkParticles.DISRUPTER
-                                                , entity.getX(), entity.getY() + 1.0f, entity.getZ(),
-                                                4,
-                                                0.03f,
-                                                0.03f,
-                                                0.03f,
-                                                0.02f
-                                        );
-
-                                        serverWorld.spawnParticles(BulwarkParticles.SHOCKWAVE
-                                                , disrupter.pos.getX() + 0.5f, disrupter.pos.getY() + 0.5f, disrupter.pos.getZ() + 0.5f,
-                                                4,
-                                                0.3f,
-                                                0.3f,
-                                                0.3f,
-                                                0.02f
-                                        );
                                     }
                                 }
                             }
@@ -165,18 +173,20 @@ public class DisrupterBlockEntity extends BlockEntity {
 
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
 
+     //   this.ownerUuids = nbt.get("ownerUuids");
+
         this.startingDelay = nbt.getInt("startingDelay");
         this.delay = nbt.getInt("delay");
         this.active = nbt.getBoolean("active");
-
         super.readNbt(nbt, registryLookup);
     }
 
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+ //       nbt.put("ownerUuids", ownerUuids);
+
         nbt.putInt("startingDelay", startingDelay);
         nbt.putInt("delay", delay);
         nbt.putBoolean("active", active);
-
         super.writeNbt(nbt, registryLookup);
     }
 }

@@ -28,6 +28,8 @@ public class BulwarkLangGen extends FabricLanguageProvider {
 
         translationBuilder.add(ILL_BOTTLE, "Bottle of Ill Substance");
 
+        translationBuilder.add(COMICALLY_LARGE_LOLLIPOP, "Comically Large Lollipop");
+
         // blocks
         translationBuilder.add(KLAPROTH_BLOCK, "Block of Klaproth");
         translationBuilder.add(KLAPROTH_PILLAR, "Klaproth Pillar");

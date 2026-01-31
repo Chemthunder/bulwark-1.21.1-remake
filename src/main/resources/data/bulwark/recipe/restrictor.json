@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    ".K.",
+    "DRD",
+    ".S."
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:polished_deepslate"
+    },
+    "R": {
+      "item": "minecraft:comparator"
+    },
+    ".": {
+      "item": "bulwark:klaproth_chunk"
+    },
+    "K": {
+      "item": "bulwark:klaproth"
+    },
+    "S": {
+      "item": "minecraft:polished_deepslate_slab"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "bulwark:restrictor"
+  },
+  "show_notification": false
+}

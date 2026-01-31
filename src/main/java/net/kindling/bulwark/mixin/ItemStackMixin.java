@@ -64,6 +64,4 @@ public abstract class ItemStackMixin {
             }
         }
     }
-
-    @Inject(method = "")
 }

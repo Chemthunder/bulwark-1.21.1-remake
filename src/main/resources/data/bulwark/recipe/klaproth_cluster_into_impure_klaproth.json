@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bulwark:klaproth_cluster"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "bulwark:impure_klaproth"
+  },
+  "show_notification": false
+}

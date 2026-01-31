@@ -51,7 +51,11 @@ public class DisrupterBlock extends BlockWithEntity {
     }
 
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-
+        if (world.getBlockEntity(pos) instanceof DisrupterBlockEntity blockEntity) {
+            if (placer != null) {
+                blockEntity.ownerUuids.add(placer.getUuid());
+            }
+        }
         world.scheduleBlockTick(pos, this, 30);
         super.onPlaced(world, pos, state, placer, itemStack);
     }

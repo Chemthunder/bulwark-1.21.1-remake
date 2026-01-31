@@ -23,6 +23,11 @@ public class BulwarkLootTableGen extends FabricBlockLootTableProvider {
         addDrop(KLAPROTH_BLOCK);
         addDrop(KLAPROTH_PILLAR);
 
+        addDropWithSilkTouch(KLAPROTH_CLUSTER);
+        addDropWithSilkTouch(LARGE_KLAPROTH_BUD);
+        addDropWithSilkTouch(MEDIUM_KLAPROTH_BUD);
+        addDropWithSilkTouch(SMALL_KLAPROTH_BUD);
+
         addDrop(DISRUPTER);
         addDrop(RESTRICTOR);
         addDropWithSilkTouch(TAINTED_GLASS);
