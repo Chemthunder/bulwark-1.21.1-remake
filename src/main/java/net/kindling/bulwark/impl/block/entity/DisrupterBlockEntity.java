@@ -103,28 +103,28 @@ public class DisrupterBlockEntity extends BlockEntity {
                                     break;
                                 }
 
-                                if (aboveState.isOf(Blocks.CAMPFIRE)) {
-                                    if (disrupter.delay > 0) {
-                                        disrupter.delay--;
-                                        if (disrupter.delay == 0) {
-                                            disrupter.delay = 20;
-
-                                            entity.setOnFireFor(3);
-
-                                            if (world instanceof ServerWorld serverWorld) {
-                                                serverWorld.spawnParticles(ParticleTypes.FLAME
-                                                        , disrupter.pos.getX() + 0.5f, disrupter.pos.getY() + 0.5f, disrupter.pos.getZ() + 0.5f,
-                                                        4,
-                                                        0.3f,
-                                                        0.3f,
-                                                        0.3f,
-                                                        0.02f
-                                                );
-                                            }
-                                        }
-                                    }
-                                    break;
-                                }
+//                                if (aboveState.isOf(Blocks.CAMPFIRE)) {
+//                                    if (disrupter.delay > 0) {
+//                                        disrupter.delay--;
+//                                        if (disrupter.delay == 0) {
+//                                            disrupter.delay = 20;
+//
+//                                            entity.setOnFireFor(3);
+//
+//                                            if (world instanceof ServerWorld serverWorld) {
+//                                                serverWorld.spawnParticles(ParticleTypes.FLAME
+//                                                        , disrupter.pos.getX() + 0.5f, disrupter.pos.getY() + 0.5f, disrupter.pos.getZ() + 0.5f,
+//                                                        4,
+//                                                        0.3f,
+//                                                        0.3f,
+//                                                        0.3f,
+//                                                        0.02f
+//                                                );
+//                                            }
+//                                        }
+//                                    }
+//                                    break;
+//                                }
 
                                 if (disrupter.delay > 0) {
                                     disrupter.delay--;

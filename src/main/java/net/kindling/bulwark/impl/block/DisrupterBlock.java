@@ -71,10 +71,6 @@ public class DisrupterBlock extends BlockWithEntity {
             if (aboveState.isOf(Blocks.SCULK_SHRIEKER)) {
                 world.setBlockState(pos, world.getBlockState(pos).with(TYPE, DisrupterType.SHRIEKER));
             }
-
-            if (aboveState.isOf(Blocks.CAMPFIRE)) {
-                world.setBlockState(pos, world.getBlockState(pos).with(TYPE, DisrupterType.CAMPFIRE));
-            }
         } else {
             world.setBlockState(pos, world.getBlockState(pos).with(TYPE, DisrupterType.EMPTY));
         }
