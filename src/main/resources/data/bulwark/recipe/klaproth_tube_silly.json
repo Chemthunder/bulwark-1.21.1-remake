@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " TI",
+    "GKB",
+    " T "
+  ],
+  "key": {
+    "K": {
+      "item": "bulwark:klaproth"
+    },
+    "T": {
+      "item": "minecraft:tinted_glass"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "G": {
+      "item": "minecraft:light_blue_dye"
+    },
+    "B": {
+      "item": "minecraft:pink_dye"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "bulwark:klaproth_tube_luminant"
+  },
+  "show_notification": false
+}

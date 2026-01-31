@@ -58,6 +58,7 @@ public interface BulwarkItemGroups {
         itemGroup.add(KLAPMALLOW);
         itemGroup.add(KLAPMALLOW_STICK);
         itemGroup.add(KLAPROTH_CANDY);
+        itemGroup.add(COMICALLY_LARGE_LOLLIPOP);
 
         itemGroup.add(ILL_BOTTLE);
         itemGroup.add(ILL_SUBSTANCE);

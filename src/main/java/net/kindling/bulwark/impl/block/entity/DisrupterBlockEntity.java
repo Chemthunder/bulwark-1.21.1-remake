@@ -23,10 +23,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class DisrupterBlockEntity extends BlockEntity {
     public DisrupterBlockEntity(BlockPos pos, BlockState state) {
@@ -35,7 +32,7 @@ public class DisrupterBlockEntity extends BlockEntity {
 
     private static final EnumProperty<DisrupterType> TYPE = BulwarkProperties.DISRUPTER_TYPE;
 
-    public List<UUID> ownerUuids = new ArrayList<>();
+    public String ownerUuid = "";
     public int startingDelay = 50;
     public int delay = 35;
     public boolean active = false;
@@ -60,7 +57,7 @@ public class DisrupterBlockEntity extends BlockEntity {
             for (LivingEntity entity : entities) {
                 if (disrupter.active) {
                     if (!entity.getOffHandStack().isOf(BulwarkItems.OPERATOR_KEY)) {
-                        if (!disrupter.ownerUuids.contains(entity.getUuid())) {
+                        if (!disrupter.ownerUuid.equals(entity.getUuidAsString())) {
                             if (!entity.isInCreativeMode()) {
                                 if (aboveState.isOf(Blocks.LODESTONE)) {
                                     if (disrupter.delay > 0) {
@@ -175,6 +172,7 @@ public class DisrupterBlockEntity extends BlockEntity {
 
      //   this.ownerUuids = nbt.get("ownerUuids");
 
+        this.ownerUuid = nbt.getString("ownerUuid");
         this.startingDelay = nbt.getInt("startingDelay");
         this.delay = nbt.getInt("delay");
         this.active = nbt.getBoolean("active");
@@ -183,7 +181,7 @@ public class DisrupterBlockEntity extends BlockEntity {
 
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
  //       nbt.put("ownerUuids", ownerUuids);
-
+        nbt.putString("ownerUuid", ownerUuid);
         nbt.putInt("startingDelay", startingDelay);
         nbt.putInt("delay", delay);
         nbt.putBoolean("active", active);

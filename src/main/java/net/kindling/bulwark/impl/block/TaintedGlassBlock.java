@@ -4,6 +4,7 @@ import net.kindling.bulwark.impl.util.BulwarkProperties;
 import net.kindling.bulwark.impl.util.enumProperties.TaintedGlassType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.TransparentBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.state.StateManager;
@@ -11,14 +12,19 @@ import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class TaintedGlassBlock extends Block {
+public class TaintedGlassBlock extends TransparentBlock {
     public TaintedGlassBlock(Settings settings) {
         super(settings);
         setDefaultState(getDefaultState()
                 .with(TYPE, TaintedGlassType.EMPTY)
         );
+    }
+
+    protected int getOpacity(BlockState state, BlockView world, BlockPos pos) {
+        return 50;
     }
 
     private static final EnumProperty<TaintedGlassType> TYPE = BulwarkProperties.GLASS_TYPE;

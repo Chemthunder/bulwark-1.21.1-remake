@@ -17,7 +17,7 @@ public interface BulwarkItems {
     Item KLAPROTH_CHUNK = create("klaproth_chunk", KlaprothItem::new, new Item.Settings().fireproof());
     Item IMPURE_KLAPROTH = create("impure_klaproth", KlaprothItem::new, new Item.Settings().fireproof());
 
-    Item COMICALLY_LARGE_LOLLIPOP = create("comically_large_lollipop", ComicallyLargeLollipopItem::new, new Item.Settings().maxCount(1));
+    Item COMICALLY_LARGE_LOLLIPOP = create("comically_large_lollipop", ComicallyLargeLollipopItem::new, new Item.Settings().maxCount(1).food(BulwarkFoodComponents.LOLLIPOP));
     Item KLAPROTH_CANDY = create("klaproth_candy", EdibleKlaprothItem::new, new Item.Settings().maxCount(16).food(BulwarkFoodComponents.KLAPROTH_CANDY));
 
     Item KLAPMALLOW = create("klapmallow", KlapmallowItem::new, new Item.Settings().food(BulwarkFoodComponents.KLAPMALLOW).maxCount(16));

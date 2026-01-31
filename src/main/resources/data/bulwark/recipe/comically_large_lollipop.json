@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "ingredients": [
+    {
+      "item": "bulwark:small_klaproth_bud"
+    }
+  ],
+  "pattern": [
+    " SK",
+    ",/S",
+    "/, "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "K": {
+      "item": "bulwark:impure_klaproth"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    },
+    ",": {
+      "item": "bulwark:klaproth_chunk"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "bulwark:comically_large_lollipop"
+  },
+  "show_notification": false
+}

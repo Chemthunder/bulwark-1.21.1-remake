@@ -98,7 +98,8 @@ public interface BulwarkBlocks {
                 LUMINANT_KLAPROTH_TUBE,
                 EXOTIC_KLAPROTH_TUBE,
                 ORANGE_KLAPROTH_TUBE,
-                ILL_SUBSTANCE
+                ILL_SUBSTANCE,
+                TAINTED_GLASS
         );
 
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),

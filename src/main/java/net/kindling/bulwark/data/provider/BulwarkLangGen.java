@@ -65,5 +65,6 @@ public class BulwarkLangGen extends FabricLanguageProvider {
         translationBuilder.add("item.minecraft.tipped_arrow.effect.actinism", "Arrow of Distortion");
 
         translationBuilder.add("tooltip.roasted", "Roasted");
+        translationBuilder.add("text.lollipop", "yummers");
     }
 }
