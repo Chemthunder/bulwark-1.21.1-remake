@@ -15,14 +15,17 @@ import static net.acoyt.acornlib.api.util.ItemUtils.modifyItemNameColor;
 public interface BulwarkItems {
     Item KLAPROTH = create("klaproth", KlaprothItem::new, new Item.Settings().maxCount(16).fireproof());
     Item KLAPROTH_CHUNK = create("klaproth_chunk", KlaprothItem::new, new Item.Settings().fireproof());
+    Item IMPURE_KLAPROTH = create("impure_klaproth", KlaprothItem::new, new Item.Settings().fireproof());
 
     Item COMICALLY_LARGE_LOLLIPOP = create("comically_large_lollipop", ComicallyLargeLollipopItem::new, new Item.Settings().maxCount(1));
-    Item KLAPROTH_CANDY = create("klaproth_candy", EdibleKlaprothItem::new, new Item.Settings().maxCount(16));
+    Item KLAPROTH_CANDY = create("klaproth_candy", EdibleKlaprothItem::new, new Item.Settings().maxCount(16).food(BulwarkFoodComponents.KLAPROTH_CANDY));
 
     Item KLAPMALLOW = create("klapmallow", KlapmallowItem::new, new Item.Settings().food(BulwarkFoodComponents.KLAPMALLOW).maxCount(16));
     Item KLAPMALLOW_STICK = create("klapmallow_stick", KlapmallowStickItem::new, new Item.Settings().food(BulwarkFoodComponents.KLAPMALLOW_STICK).maxCount(1));
 
     Item OPERATOR_KEY = create("operator_key", Item::new, new Item.Settings().maxCount(1));
+
+    Item ILL_BOTTLE = create("ill_bottle", IllBottleItem::new, new Item.Settings().maxCount(16));
 
     static Item create(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {
         Item item = factory.apply(settings);
@@ -39,5 +42,7 @@ public interface BulwarkItems {
         modifyItemNameColor(Item.fromBlock(BulwarkBlocks.SCULK_KLAPROTH_TUBE), 0x009295);
         modifyItemNameColor(Item.fromBlock(BulwarkBlocks.SILLY_KLAPROTH_TUBE), 0xffa1fe);
         modifyItemNameColor(Item.fromBlock(BulwarkBlocks.KLAPROTH_TUBE), 0xd5c3f5);
+        modifyItemNameColor(Item.fromBlock(BulwarkBlocks.ORANGE_KLAPROTH_TUBE), 0xff964a);
+        modifyItemNameColor(Item.fromBlock(BulwarkBlocks.EXOTIC_KLAPROTH_TUBE), 0xa624ff);
     }
 }

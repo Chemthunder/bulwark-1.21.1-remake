@@ -1,3 +1,5 @@
-// 1.21.1	2026-01-28T21:14:15.1878012	Bulwark/Tags for minecraft:block
-80beb290bda7b2c4fe35cc7d77430be302bdaf4a data\minecraft\tags\block\needs_iron_tool.json
-80beb290bda7b2c4fe35cc7d77430be302bdaf4a data\minecraft\tags\block\mineable\pickaxe.json
+// 1.21.1	2026-01-30T22:03:28.2522058	Bulwark/Tags for minecraft:block
+ce12acb4d7db772701d8faba0ef83abbf9720af2 data\minecraft\tags\block\needs_iron_tool.json
+d239ab08c17651dd49b5b0246dcf9e850d905232 data\minecraft\tags\block\mineable\hoe.json
+ce12acb4d7db772701d8faba0ef83abbf9720af2 data\minecraft\tags\block\mineable\pickaxe.json
+d239ab08c17651dd49b5b0246dcf9e850d905232 data\minecraft\tags\block\needs_stone_tool.json

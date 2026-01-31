@@ -14,6 +14,12 @@ public interface BulwarkFoodComponents {
             .saturationModifier(4.0f)
             .build();
 
+    FoodComponent KLAPROTH_CANDY = new FoodComponent.Builder()
+            .alwaysEdible()
+            .nutrition(4)
+            .saturationModifier(1.5f)
+            .build();
+
     static void index() {
 
     }

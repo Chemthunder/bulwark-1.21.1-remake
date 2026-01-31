@@ -6,20 +6,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bulwark:klaproth",
+          "name": "bulwark:impure_klaproth",
+          "conditions": [],
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 2,
-              "conditions": [
-                {
-                  "condition": "minecraft:survives_explosion"
-                }
-              ]
+              "count": 2
             }
           ]
         }
-      ]
+      ],
+      "functions": []
     }
   ]
 }

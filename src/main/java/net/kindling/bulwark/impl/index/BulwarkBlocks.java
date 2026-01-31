@@ -17,7 +17,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import java.util.function.Function;
 
 public interface BulwarkBlocks {
-    Block KLAPROTH_BLOCK = createWithItem("klaproth_block", KlaprothBlock::new, Settings.copy(Blocks.AMETHYST_BLOCK).luminance(value -> 1).emissiveLighting((state, world, pos) -> true), new Item.Settings());
+    Block KLAPROTH_BLOCK = createWithItem("klaproth_block", Block::new, Settings.copy(Blocks.AMETHYST_BLOCK).luminance(value -> 1).emissiveLighting((state, world, pos) -> true), new Item.Settings());
     Block KLAPROTH_PILLAR = createWithItem("klaproth_pillar", PillarBlock::new, Settings.copy(Blocks.AMETHYST_BLOCK).luminance(value -> 1).emissiveLighting((state, world, pos) -> true), new Item.Settings());
 
     Block DISRUPTER = createWithItem("disrupter", DisrupterBlock::new, Settings.copy(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.TRIAL_SPAWNER).emissiveLighting((state, world, pos) -> true).luminance(value -> 1), new Item.Settings());
@@ -29,7 +29,8 @@ public interface BulwarkBlocks {
     Block MEDIUM_KLAPROTH_BUD = createWithItem("medium_klaproth_bud", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).nonOpaque().emissiveLighting((state, world, pos) -> true).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 4), new Item.Settings());
     Block LARGE_KLAPROTH_BUD = createWithItem("large_klaproth_bud", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).nonOpaque().emissiveLighting((state, world, pos) -> true).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 6), new Item.Settings());
     Block KLAPROTH_CLUSTER = createWithItem("klaproth_cluster", KlaprothClusterBlock::new, Settings.copy(Blocks.SMALL_AMETHYST_BUD).nonOpaque().emissiveLighting((state, world, pos) -> true).sounds(BlockSoundGroup.AMETHYST_BLOCK).luminance(value -> 8), new Item.Settings());
-
+    Block ILL_SUBSTANCE = createWithItem("ill_substance", IllSubstanceBlock::new, Settings.copy(Blocks.WEEPING_VINES).luminance(value -> 6).sounds(BlockSoundGroup.WEEPING_VINES).dropsNothing(), new Item.Settings());
+    Block OMINOUS_CATALYST = createWithItem("ominous_catalyst", OminousCatalystBlock::new, Settings.copy(Blocks.SCULK_CATALYST).luminance(value -> 3).dropsNothing(), new Item.Settings());
 
     Block KLAPROTH_TUBE = createWithItem("klaproth_tube", KlaprothTubeBlock::new,
             Settings.copy(Blocks.CHAIN).sounds(BlockSoundGroup.TRIAL_SPAWNER)
@@ -55,6 +56,18 @@ public interface BulwarkBlocks {
             Settings.copy(Blocks.CHAIN).sounds(BlockSoundGroup.TRIAL_SPAWNER)
                     .emissiveLighting((state, world, pos) -> true).luminance(value -> 9),
             new Item.Settings().maxCount(16));
+
+    Block ORANGE_KLAPROTH_TUBE = createWithItem("klaproth_tube_orange", KlaprothTubeBlock::new,
+            Settings.copy(Blocks.CHAIN).sounds(BlockSoundGroup.TRIAL_SPAWNER)
+                    .emissiveLighting((state, world, pos) -> true).luminance(value -> 9),
+            new Item.Settings().maxCount(16));
+
+    Block EXOTIC_KLAPROTH_TUBE = createWithItem("klaproth_tube_exotic", KlaprothTubeBlock::new,
+            Settings.copy(Blocks.CHAIN).sounds(BlockSoundGroup.TRIAL_SPAWNER)
+                    .emissiveLighting((state, world, pos) -> true).luminance(value -> 9),
+            new Item.Settings().maxCount(16));
+
+
 
     static Block create(String name, Function<Settings, Block> factory, Settings settings) {
         Block block = factory.apply(settings);
@@ -82,7 +95,10 @@ public interface BulwarkBlocks {
                 RED_KLAPROTH_TUBE,
                 SILLY_KLAPROTH_TUBE,
                 SCULK_KLAPROTH_TUBE,
-                LUMINANT_KLAPROTH_TUBE
+                LUMINANT_KLAPROTH_TUBE,
+                EXOTIC_KLAPROTH_TUBE,
+                ORANGE_KLAPROTH_TUBE,
+                ILL_SUBSTANCE
         );
 
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),

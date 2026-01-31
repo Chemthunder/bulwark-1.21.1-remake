@@ -62,6 +62,12 @@ public class KlaprothTubeBlock extends RodBlock {
             if (state.isOf(BulwarkBlocks.RED_KLAPROTH_TUBE)) {
                 world.addParticle(BulwarkParticles.SPARKLE_RED, d + (double) direction.getOffsetX() * g, e + (double) direction.getOffsetY() * g, f + (double) direction.getOffsetZ() * g, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005);
             }
+            if (state.isOf(BulwarkBlocks.ORANGE_KLAPROTH_TUBE)) {
+                world.addParticle(BulwarkParticles.SPARKLE_ORANGE, d + (double) direction.getOffsetX() * g, e + (double) direction.getOffsetY() * g, f + (double) direction.getOffsetZ() * g, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005);
+            }
+            if (state.isOf(BulwarkBlocks.EXOTIC_KLAPROTH_TUBE)) {
+                world.addParticle(BulwarkParticles.SPARKLE_EXOTIC, d + (double) direction.getOffsetX() * g, e + (double) direction.getOffsetY() * g, f + (double) direction.getOffsetZ() * g, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005, random.nextGaussian() * 0.005);
+            }
         }
     }
 

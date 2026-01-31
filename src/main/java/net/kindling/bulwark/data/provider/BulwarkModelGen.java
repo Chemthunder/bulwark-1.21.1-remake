@@ -21,6 +21,7 @@ public class BulwarkModelGen extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator generator) {
         generator.register(KLAPROTH, Models.GENERATED);
         generator.register(KLAPROTH_CHUNK, Models.GENERATED);
+        generator.register(IMPURE_KLAPROTH, Models.GENERATED);
 
         generator.register(OPERATOR_KEY, Models.GENERATED);
         generator.register(COMICALLY_LARGE_LOLLIPOP, Models.GENERATED);
@@ -28,5 +29,7 @@ public class BulwarkModelGen extends FabricModelProvider {
         generator.register(KLAPMALLOW, Models.GENERATED);
         generator.register(KLAPMALLOW_STICK, Models.HANDHELD);
         generator.register(KLAPROTH_CANDY, Models.GENERATED);
+
+        generator.register(ILL_BOTTLE, Models.GENERATED);
     }
 }

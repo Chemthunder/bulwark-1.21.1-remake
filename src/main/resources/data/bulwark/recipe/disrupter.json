@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    ".K.",
+    "DRD",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:polished_deepslate"
+    },
+    "R": {
+      "item": "minecraft:repeater"
+    },
+    ".": {
+      "item": "bulwark:klaproth_chunk"
+    },
+    "K": {
+      "item": "bulwark:klaproth"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "bulwark:disrupter"
+  },
+  "show_notification": false
+}

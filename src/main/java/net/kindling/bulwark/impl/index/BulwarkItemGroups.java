@@ -31,6 +31,8 @@ public interface BulwarkItemGroups {
     private static void addEntries(FabricItemGroupEntries itemGroup) {
         itemGroup.add(KLAPROTH);
         itemGroup.add(KLAPROTH_CHUNK);
+        itemGroup.add(IMPURE_KLAPROTH);
+
         itemGroup.add(KLAPROTH_BLOCK);
         itemGroup.add(KLAPROTH_PILLAR);
 
@@ -50,9 +52,15 @@ public interface BulwarkItemGroups {
         itemGroup.add(RED_KLAPROTH_TUBE);
         itemGroup.add(SCULK_KLAPROTH_TUBE);
         itemGroup.add(SILLY_KLAPROTH_TUBE);
+        itemGroup.add(ORANGE_KLAPROTH_TUBE);
+        itemGroup.add(EXOTIC_KLAPROTH_TUBE);
 
         itemGroup.add(KLAPMALLOW);
         itemGroup.add(KLAPMALLOW_STICK);
         itemGroup.add(KLAPROTH_CANDY);
+
+        itemGroup.add(ILL_BOTTLE);
+        itemGroup.add(ILL_SUBSTANCE);
+        itemGroup.add(OMINOUS_CATALYST);
     }
 }

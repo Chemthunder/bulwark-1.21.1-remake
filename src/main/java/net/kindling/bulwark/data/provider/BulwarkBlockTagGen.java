@@ -36,6 +36,10 @@ public class BulwarkBlockTagGen extends FabricTagProvider.BlockTagProvider {
 
                 ;
 
+        this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
+                .add(ILL_SUBSTANCE)
+                ;
+
         this.getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(DISRUPTER)
                 .add(RESTRICTOR)
@@ -56,5 +60,9 @@ public class BulwarkBlockTagGen extends FabricTagProvider.BlockTagProvider {
                 .add(BUDDING_KLAPROTH)
 
         ;
+
+        this.getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
+                .add(ILL_SUBSTANCE)
+                ;
     }
 }

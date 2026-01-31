@@ -2,8 +2,8 @@ package net.kindling.bulwark.impl.block;
 
 import net.minecraft.block.Block;
 
-public class KlaprothBlock extends Block {
-    public KlaprothBlock(Settings settings) {
+public class IllSubstanceBlock extends Block {
+    public IllSubstanceBlock(Settings settings) {
         super(settings);
     }
 }

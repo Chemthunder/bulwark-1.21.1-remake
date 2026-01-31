@@ -18,12 +18,15 @@ public class BulwarkLangGen extends FabricLanguageProvider {
         // items
         translationBuilder.add(KLAPROTH, "Klaproth");
         translationBuilder.add(KLAPROTH_CHUNK, "Klaproth Chunk");
+        translationBuilder.add(IMPURE_KLAPROTH, "Impure Klaproth");
 
         translationBuilder.add(OPERATOR_KEY, "Operator Key");
 
         translationBuilder.add(KLAPMALLOW, "Klapmallow");
         translationBuilder.add(KLAPMALLOW_STICK, "Klapmallow on a Stick");
         translationBuilder.add(KLAPROTH_CANDY, "Klaproth Candy");
+
+        translationBuilder.add(ILL_BOTTLE, "Bottle of Ill Substance");
 
         // blocks
         translationBuilder.add(KLAPROTH_BLOCK, "Block of Klaproth");
@@ -38,12 +41,17 @@ public class BulwarkLangGen extends FabricLanguageProvider {
         translationBuilder.add(SCULK_KLAPROTH_TUBE, "Sculk Klaproth Tube");
         translationBuilder.add(LUMINANT_KLAPROTH_TUBE, "Luminant Klaproth Tube");
         translationBuilder.add(SILLY_KLAPROTH_TUBE, "Silly Klaproth Tube");
+        translationBuilder.add(ORANGE_KLAPROTH_TUBE, "Orange Klaproth Tube");
+        translationBuilder.add(EXOTIC_KLAPROTH_TUBE, "Exotic Klaproth Tube");
 
         translationBuilder.add(SMALL_KLAPROTH_BUD, "Small Klaproth Bud");
         translationBuilder.add(MEDIUM_KLAPROTH_BUD, "Medium Klaproth Bud");
         translationBuilder.add(LARGE_KLAPROTH_BUD, "Large Klaproth Bud");
         translationBuilder.add(KLAPROTH_CLUSTER, "Klaproth Cluster");
         translationBuilder.add(BUDDING_KLAPROTH, "Budding Klaproth");
+
+        translationBuilder.add(ILL_SUBSTANCE, "Ill Substance");
+        translationBuilder.add(OMINOUS_CATALYST, "Ominous Catalyst");
 
         // misc
         translationBuilder.add("itemGroup.bulwark", "Bulwark");
