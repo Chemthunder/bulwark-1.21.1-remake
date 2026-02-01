@@ -58,6 +58,7 @@ public abstract class ItemStackMixin {
                         if (world instanceof ServerWorld serverWorld) {
                             serverWorld.spawnParticles(ParticleTypes.HAPPY_VILLAGER, context.getBlockPos().getX(), context.getBlockPos().getY(), context.getBlockPos().getZ(), 5, 0.7f, 0.7f, 0.7f, 0);
                         }
+                        player.swingHand(player.getActiveHand());
                         player.getStackInHand(player.getActiveHand()).decrement(1);
                     }
                 }
