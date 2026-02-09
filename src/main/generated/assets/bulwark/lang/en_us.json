@@ -33,6 +33,7 @@
   "item.minecraft.splash_potion.effect.actinism": "Splash Potion of Distortion",
   "item.minecraft.tipped_arrow.effect.actinism": "Arrow of Distortion",
   "itemGroup.bulwark": "Bulwark",
+  "text.gamerule.fail_grow_klaproth": "Your server's game rules do not allow this interaction!",
   "text.lollipop": "yummers",
   "tooltip.roasted": "Roasted"
 }

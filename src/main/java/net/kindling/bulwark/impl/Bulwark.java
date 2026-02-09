@@ -26,6 +26,7 @@ public class Bulwark implements ModInitializer {
         BulwarkSounds.index();
         BulwarkPotions.index();
         BulwarkDataComponents.index();
+        BulwarkServerProperties.index();
 
 		LOGGER.info("Kindling the cinders");
 

@@ -66,5 +66,6 @@ public class BulwarkLangGen extends FabricLanguageProvider {
 
         translationBuilder.add("tooltip.roasted", "Roasted");
         translationBuilder.add("text.lollipop", "yummers");
+        translationBuilder.add("text.gamerule.fail_grow_klaproth", "Your server's game rules do not allow this interaction!");
     }
 }
