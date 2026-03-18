@@ -2,6 +2,7 @@ package net.kindling.bulwark.impl.index;
 
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.world.GameRules;
 
 public interface BulwarkServerProperties {
@@ -12,5 +13,9 @@ public interface BulwarkServerProperties {
             GameRuleFactory.createBooleanRule(true)
     );
 
-    static void index() {}
+
+
+    static void index() {
+        FuelRegistry.INSTANCE.add(BulwarkItems.KLAPROTH, 432000);
+    }
 }

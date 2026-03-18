@@ -68,17 +68,14 @@ public class KlapmallowItem extends Item implements ModelVaryingItem {
         super.appendTooltip(stack, context, tooltip, type);
     }
 
-
     public Identifier getModel(ModelTransformationMode modelTransformationMode, ItemStack itemStack, @Nullable LivingEntity livingEntity) {
         var component = BulwarkDataComponents.IS_ROASTED;
 
         if (itemStack.getOrDefault(component, false) == true) {
             return Bulwark.id("roasted_klapmallow");
         }
-
         return Bulwark.id("klapmallow");
     }
-
 
     public List<Identifier> getModelsToLoad() {
         return Arrays.asList(

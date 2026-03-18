@@ -1,6 +1,6 @@
 package net.kindling.bulwark.impl.block.entity;
 
-import net.acoyt.acornlib.impl.init.tag.AcornBlockTags;
+import net.acoyt.acornlib.impl.index.tag.AcornBlockTags;
 import net.kindling.bulwark.impl.index.*;
 import net.kindling.bulwark.impl.util.BulwarkProperties;
 import net.kindling.bulwark.impl.util.enumProperties.DisrupterType;
@@ -10,20 +10,18 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.property.EnumProperty;
-import net.minecraft.util.Uuids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.List;
 
 public class DisrupterBlockEntity extends BlockEntity {
     public DisrupterBlockEntity(BlockPos pos, BlockState state) {

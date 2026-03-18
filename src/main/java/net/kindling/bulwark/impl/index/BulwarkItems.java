@@ -9,8 +9,6 @@ import net.minecraft.registry.Registry;
 
 import java.util.function.Function;
 
-import static net.acoyt.acornlib.api.util.ItemUtils.modifyItemNameColor;
-
 @SuppressWarnings("deprecation")
 public interface BulwarkItems {
     Item KLAPROTH = create("klaproth", KlaprothItem::new, new Item.Settings().maxCount(16).fireproof());
